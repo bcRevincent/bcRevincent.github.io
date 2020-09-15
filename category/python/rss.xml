@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title> • Posts by &#34;python&#34; category</title>
+        <link>http://bcRevincent.github.io</link>
+        <description>睡着做梦，醒着圆梦。</description>
+        <language>zh-CN</language>
+        <pubDate>Tue, 15 Sep 2020 21:46:36 +0800</pubDate>
+        <lastBuildDate>Tue, 15 Sep 2020 21:46:36 +0800</lastBuildDate>
+        <item>
+            <guid isPermalink="true">http://bcrevincent.github.io/python/</guid>
+            <title>图片与代码块共存样例</title>
+            <link>http://bcrevincent.github.io/python/</link>
+            <pubDate>Tue, 15 Sep 2020 21:46:36 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;1-插入图片&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#1-插入图片&#34;&gt;#&lt;/a&gt; 1. 插入图片&lt;/h1&gt;
+&lt;h2 id=&#34;-swig1-图片&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#-swig1-图片&#34;&gt;#&lt;/a&gt; &lt;img data-src=&#34;/bcRevincent.github.io/python/python.jpg&#34; class=&#34;&#34; title=&#34;图片1&#34;&gt;&lt;br&gt;
+&lt;img data-src=&#34;python.jpg&#34; alt=&#34;图片&#34;&gt;&lt;/h2&gt;
+&lt;h1 id=&#34;2-插入代码块&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#2-插入代码块&#34;&gt;#&lt;/a&gt; 2. 插入代码块&lt;/h1&gt;
+&lt;h2 id=&#34;-code0-&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#-code0-&#34;&gt;#&lt;/a&gt; &lt;figure class=&#34;highlight plain&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;npm install hexo-asset-image &lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/h2&gt;
+&lt;p&gt;这是第 1 次更新！！！&lt;/p&gt;
+ ]]></description>
+        </item>
+    </channel>
+</rss>

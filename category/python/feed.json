@@ -1,0 +1,16 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "null • All posts by \"python\" category",
+    "description": "睡着做梦，醒着圆梦。",
+    "home_page_url": "http://bcRevincent.github.io",
+    "items": [
+        {
+            "id": "http://bcrevincent.github.io/python/",
+            "url": "http://bcrevincent.github.io/python/",
+            "title": "图片与代码块共存样例",
+            "date_published": "2020-09-15T13:46:36.000Z",
+            "content_html": "<h1 id=\"1-插入图片\"><a class=\"markdownIt-Anchor\" href=\"#1-插入图片\">#</a> 1. 插入图片</h1>\n<h2 id=\"-swig1-图片\"><a class=\"markdownIt-Anchor\" href=\"#-swig1-图片\">#</a> <img data-src=\"/bcRevincent.github.io/python/python.jpg\" class=\"\" title=\"图片1\"><br>\n<img data-src=\"python.jpg\" alt=\"图片\"></h2>\n<h1 id=\"2-插入代码块\"><a class=\"markdownIt-Anchor\" href=\"#2-插入代码块\">#</a> 2. 插入代码块</h1>\n<h2 id=\"-code0-\"><a class=\"markdownIt-Anchor\" href=\"#-code0-\">#</a> <figure class=\"highlight plain\"><table><tr><td class=\"gutter\"><pre><span class=\"line\">1</span><br></pre></td><td class=\"code\"><pre><span class=\"line\">npm install hexo-asset-image </span><br></pre></td></tr></table></figure></h2>\n<p>这是第 1 次更新！！！</p>\n",
+            "tags": []
+        }
+    ]
+}
