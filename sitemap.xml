@@ -2,21 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://bcrevincent.github.io/python/</loc>
+    <loc>https://revincent.com/python/</loc>
     
     <lastmod>2020-09-17</lastmod>
     
   </url>
   
   <url>
-    <loc>http://bcrevincent.github.io/hello-world/</loc>
+    <loc>https://revincent.com/hello-world/</loc>
     
     <lastmod>2020-09-15</lastmod>
     
   </url>
   
   <url>
-    <loc>http://bcrevincent.github.io/categories/index.html</loc>
+    <loc>https://revincent.com/categories/index.html</loc>
     
     <lastmod>2020-09-14</lastmod>
     
@@ -24,7 +24,7 @@
   
 
   <url>
-    <loc>http://bcrevincent.github.io/</loc>
+    <loc>https://revincent.com/</loc>
     <lastmod>2020-09-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
@@ -34,7 +34,7 @@
 
   
   <url>
-    <loc>http://bcrevincent.github.io/categories/Python/</loc>
+    <loc>https://revincent.com/categories/Python/</loc>
     <lastmod>2020-09-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

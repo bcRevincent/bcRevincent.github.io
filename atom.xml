@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>http://bcRevincent.github.io</id>
+    <id>https://revincent.com</id>
     <title></title>
-    <link href="http://bcRevincent.github.io" />
+    <link href="https://revincent.com" />
     <updated>2020-09-15T13:46:36.000Z</updated>
     <entry>
-        <id>http://bcrevincent.github.io/python/</id>
+        <id>https://revincent.com/python/</id>
         <title>图片与代码块共存样例</title>
-        <link rel="alternate" href="http://bcrevincent.github.io/python/"/>
+        <link rel="alternate" href="https://revincent.com/python/"/>
         <content type="html">&lt;h1 id=&#34;1-插入图片&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#1-插入图片&#34;&gt;#&lt;/a&gt; 1. 插入图片&lt;/h1&gt;
 &lt;h2 id=&#34;-swig1-图片&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#-swig1-图片&#34;&gt;#&lt;/a&gt; &lt;img data-src=&#34;/bcRevincent.github.io/python/python.jpg&#34; class=&#34;&#34; title=&#34;图片1&#34;&gt;&lt;br&gt;
 &lt;img data-src=&#34;python.jpg&#34; alt=&#34;图片&#34;&gt;&lt;/h2&gt;
@@ -32,9 +32,9 @@ M834 80h400000v40h-400000z&#39;/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/span&gt;&lt;/s
         <updated>2020-09-15T13:46:36.000Z</updated>
     </entry>
     <entry>
-        <id>http://bcrevincent.github.io/hello-world/</id>
+        <id>https://revincent.com/hello-world/</id>
         <title>Hello World</title>
-        <link rel="alternate" href="http://bcrevincent.github.io/hello-world/"/>
+        <link rel="alternate" href="https://revincent.com/hello-world/"/>
         <content type="html">&lt;p&gt;Welcome to &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvLw==&#34;&gt;Hexo&lt;/span&gt;! This is your very first post. Check &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv&#34;&gt;documentation&lt;/span&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=&#34;&gt;troubleshooting&lt;/span&gt; or you can ask me on &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcw==&#34;&gt;GitHub&lt;/span&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;quick-start&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#quick-start&#34;&gt;#&lt;/a&gt; Quick Start&lt;/h2&gt;
 &lt;h3 id=&#34;create-a-new-post&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#create-a-new-post&#34;&gt;#&lt;/a&gt; Create a new post&lt;/h3&gt;
