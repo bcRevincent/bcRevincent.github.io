@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.revincent.com/bcRevincent.github.io/BZOJ1941/</loc>
-    <lastmod>2020-09-21</lastmod>
-  </url>
-  <url>
     <loc>https://www.revincent.com/bcRevincent.github.io/untitled-c1/</loc>
     <lastmod>2020-09-21</lastmod>
   </url>
   <url>
-    <loc>https://www.revincent.com/bcRevincent.github.io/BZOJ2468/</loc>
+    <loc>https://www.revincent.com/bcRevincent.github.io/SPOJ-QTREE/</loc>
     <lastmod>2020-09-21</lastmod>
   </url>
   <url>
@@ -21,11 +17,15 @@
     <lastmod>2020-09-21</lastmod>
   </url>
   <url>
-    <loc>https://www.revincent.com/bcRevincent.github.io/SPOJ-QTREE/</loc>
+    <loc>https://www.revincent.com/bcRevincent.github.io/HDU3966/</loc>
     <lastmod>2020-09-21</lastmod>
   </url>
   <url>
-    <loc>https://www.revincent.com/bcRevincent.github.io/HDU3966/</loc>
+    <loc>https://www.revincent.com/bcRevincent.github.io/BZOJ2468/</loc>
+    <lastmod>2020-09-21</lastmod>
+  </url>
+  <url>
+    <loc>https://www.revincent.com/bcRevincent.github.io/BZOJ1941/</loc>
     <lastmod>2020-09-21</lastmod>
   </url>
   <url>

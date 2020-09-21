@@ -12,6 +12,7 @@
             <guid isPermalink="true">https://www.revincent.com/untitled-c1/</guid>
             <title>Fun with the Fellowship(矩阵快速幂)</title>
             <link>https://www.revincent.com/untitled-c1/</link>
+            <category>ACM</category>
             <pubDate>Mon, 21 Sep 2020 11:58:29 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;1-题目描述及分析&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#1-题目描述及分析&#34;&gt;#&lt;/a&gt; 1. 题目描述及分析&lt;/h1&gt;
 &lt;p&gt;&lt;strong&gt;Problem Description&lt;/strong&gt;&lt;/p&gt;
@@ -52,6 +53,7 @@
             <guid isPermalink="true">https://www.revincent.com/POJ3694/</guid>
             <title>POJ3694 Network(Tarjan求割边+LCA)</title>
             <link>https://www.revincent.com/POJ3694/</link>
+            <category>ACM</category>
             <pubDate>Mon, 21 Sep 2020 11:49:57 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly92anVkZ2UubmV0L2NvbnRlc3QvMTU0NDk0I3Byb2JsZW0vRA==&#34;&gt;题目传送门：POJ 3694&lt;/span&gt;&lt;/p&gt;
 &lt;h1 id=&#34;1-题目大意及思路&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#1-题目大意及思路&#34;&gt;#&lt;/a&gt; 1. 题目大意及思路&lt;/h1&gt;
@@ -66,6 +68,7 @@
             <guid isPermalink="true">https://www.revincent.com/BZOJ2468/</guid>
             <title>BZOJ2468 SJY摆棋子(kd_Tree模板题)</title>
             <link>https://www.revincent.com/BZOJ2468/</link>
+            <category>ACM</category>
             <pubDate>Mon, 21 Sep 2020 11:46:51 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3d3dy5seWRzeS5jb20vSnVkZ2VPbmxpbmUvcHJvYmxlbS5waHA/aWQ9MjY0OA==&#34;&gt;题目传送门：bzoj 2468&lt;/span&gt;&lt;/p&gt;
 &lt;h1 id=&#34;1-题目&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#1-题目&#34;&gt;#&lt;/a&gt; 1. 题目&lt;/h1&gt;
@@ -93,6 +96,7 @@
             <guid isPermalink="true">https://www.revincent.com/POJ3237/</guid>
             <title>POJ 3237 Tree(树链剖分 + 单点更新 + 区间更新 + 区间查询)</title>
             <link>https://www.revincent.com/POJ3237/</link>
+            <category>ACM</category>
             <pubDate>Mon, 21 Sep 2020 11:09:01 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly92anVkZ2UubmV0L2NvbnRlc3QvMTU3MjM0I3Byb2JsZW0vSA==&#34;&gt;题目传送门：POJ 3237 Tree&lt;/span&gt;&lt;/p&gt;
 &lt;h1 id=&#34;1-题目大意及思路&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#1-题目大意及思路&#34;&gt;#&lt;/a&gt; 1. 题目大意及思路&lt;/h1&gt;
@@ -106,6 +110,7 @@
             <guid isPermalink="true">https://www.revincent.com/SPOJ-QTREE/</guid>
             <title>SPOJ-QTREE</title>
             <link>https://www.revincent.com/SPOJ-QTREE/</link>
+            <category>ACM</category>
             <pubDate>Mon, 21 Sep 2020 10:31:10 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly92anVkZ2UubmV0L2NvbnRlc3QvMTU3MjM0I3Byb2JsZW0vQQ==&#34;&gt;题目传送门&lt;/span&gt;&lt;/p&gt;
 &lt;h1 id=&#34;1-题目大意&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#1-题目大意&#34;&gt;#&lt;/a&gt; 1. 题目大意&lt;/h1&gt;
@@ -122,6 +127,7 @@
             <guid isPermalink="true">https://www.revincent.com/HDU3966/</guid>
             <title>HDU3966（树链剖分 + 区间更新 + 点查询）</title>
             <link>https://www.revincent.com/HDU3966/</link>
+            <category>ACM</category>
             <pubDate>Mon, 21 Sep 2020 10:12:54 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly92anVkZ2UubmV0L3Byb2JsZW0vSERVLTM5NjY=&#34;&gt;题目传送门&lt;/span&gt;&lt;/p&gt;
 &lt;h1 id=&#34;1-题目大意及思路&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#1-题目大意及思路&#34;&gt;#&lt;/a&gt; 1 题目大意及思路&lt;/h1&gt;
