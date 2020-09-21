@@ -110,6 +110,9 @@ M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">�
       <categories>
         <category>C/C++</category>
       </categories>
+      <tags>
+        <tag>ACM</tag>
+      </tags>
   </entry>
   <entry>
     <title>POJ3694 Network(Tarjan求割边+LCA)</title>

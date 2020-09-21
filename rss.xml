@@ -7,6 +7,7 @@
         <language>zh-CN</language>
         <pubDate>Mon, 21 Sep 2020 11:58:29 +0800</pubDate>
         <lastBuildDate>Mon, 21 Sep 2020 11:58:29 +0800</lastBuildDate>
+        <category>ACM</category>
         <item>
             <guid isPermalink="true">https://www.revincent.com/untitled-c1/</guid>
             <title>Fun with the Fellowship(矩阵快速幂)</title>
@@ -77,6 +78,7 @@
             <guid isPermalink="true">https://www.revincent.com/BZOJ1941/</guid>
             <title>BZOJ1941 Hide and Seek(kd_Tree模板题)</title>
             <link>https://www.revincent.com/BZOJ1941/</link>
+            <category>ACM</category>
             <pubDate>Mon, 21 Sep 2020 11:41:01 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3d3dy5seWRzeS5jb20vSnVkZ2VPbmxpbmUvcHJvYmxlbS5waHA/aWQ9MTk0MQ==&#34;&gt;题目传送门：bzoj 1941&lt;/span&gt;&lt;/p&gt;
 &lt;h1 id=&#34;1-题目&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#1-题目&#34;&gt;#&lt;/a&gt; 1. 题目&lt;/h1&gt;
