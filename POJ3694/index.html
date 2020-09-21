@@ -1,0 +1,438 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/bcRevincent.github.io/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/bcRevincent.github.io/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="" href="https://www.revincent.com/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="" href="https://www.revincent.com/atom.xml" />
+<link rel="alternate" type="application/json" title="" href="https://www.revincent.com/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/bcRevincent.github.io/css/app.css?v=0.1.6">
+
+  
+
+
+<meta name="description" content="睡着做梦，醒着圆梦。" >
+
+
+<link rel="canonical" href="https://www.revincent.com/POJ3694/">
+
+
+
+  <title>
+POJ3694 Network(Tarjan求割边+LCA) - C/C++ |
+bc Revincent = </title>
+<meta name="generator" content="Hexo 5.1.1"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">POJ3694 Network(Tarjan求割边+LCA)
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2020-09-21 11:49:57">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2020-09-21T11:49:57+08:00">2020-09-21</time>
+  </span>
+  <span class="item" title="本文字数">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">本文字数</span>
+    <span>2.1k</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="阅读时长">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">阅读时长</span>
+    <span>2 分钟</span>
+  </span>
+  <span id="POJ3694/" class="item leancloud_visitors" data-flag-title="" title="阅读次数">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">阅读次数</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">次</span>
+  </span>
+
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/bcRevincent.github.io/" rel="start">bc Revincent</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/b4f92b99ly1gix1c89f9uj21hc0u079n.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/b4f92b99ly1gix1b8g1yij21hc0u07cq.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/b4f92b99ly1giqdc174uej21hc0u0428.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/b4f92b99ly1giqdbwgm1cj21hc0u0461.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/b4f92b99ly1gix1ayjcykj21hc0u0ahf.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/b4f92b99ly1gix1cimhh0j21hc0u011v.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main id="main">
+      <div class="inner">
+        <div id="content" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/bcRevincent.github.io/">首页</a></span>
+<i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/bcRevincent.github.io/categories/C-C/" itemprop="item" rel="index" title="分类于 C/C++"><span itemprop="name">C/C++</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="https://www.revincent.com/POJ3694/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/bcRevincent.github.io/images/avatar.jpg">
+    <meta itemprop="name" content="Revincent">
+    <meta itemprop="description" content=", 睡着做梦，醒着圆梦。">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <p><span class="exturl" data-url="aHR0cHM6Ly92anVkZ2UubmV0L2NvbnRlc3QvMTU0NDk0I3Byb2JsZW0vRA==">题目传送门：POJ 3694</span></p>
+<h1 id="1-题目大意及思路"><a class="markdownIt-Anchor" href="#1-题目大意及思路">#</a> 1. 题目大意及思路</h1>
+<p>给你一个图，有 Q 个操作，每个操作将点 u 和 v 之间连一条边，问你在每次加边之后图中的割边的数量。</p>
+<p>分析：首先用 Tarjan 在加边前求一次割边的数量，并用并查集缩点，缩点之后的图将会变成一棵树。加边时，任意两点之间直接暴力求 LCA，在求 LCA 的过程更新割边的数量。因为一棵树加上一条边之后必定有环，那么就割边的数量就会减少。具体实现看代码。</p>
+<hr>
+<h1 id="2-解题代码"><a class="markdownIt-Anchor" href="#2-解题代码">#</a> 2. 解题代码</h1>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> N 100005</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> v,next;</span><br><span class="line">&#125;edge[N&lt;&lt;<span class="number">2</span>];</span><br><span class="line"> </span><br><span class="line"><span class="keyword">int</span> pre[N],cnt;</span><br><span class="line"><span class="keyword">int</span> dfn[N],low[N],id;</span><br><span class="line"><span class="keyword">int</span> fa[N],f[N];</span><br><span class="line"><span class="keyword">int</span> n,m,q,cut;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Scan</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> f = <span class="number">1</span>,res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">char</span> ch;</span><br><span class="line">    <span class="keyword">while</span>((ch = getchar())==<span class="string">&#x27; &#x27;</span> || ch == <span class="string">&#x27;\n&#x27;</span>);</span><br><span class="line">    <span class="keyword">if</span>(ch == <span class="string">&#x27;-&#x27;</span>)f = <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">while</span>(ch &gt;= <span class="string">&#x27;0&#x27;</span> &amp;&amp; ch &lt;= <span class="string">&#x27;9&#x27;</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        res = res * <span class="number">10</span> + ch - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">        ch = getchar();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> f * res;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cnt = id = cut = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">memset</span>(pre, <span class="number">-1</span>, <span class="keyword">sizeof</span>(pre));</span><br><span class="line">    <span class="built_in">memset</span>(dfn, <span class="number">0</span>, <span class="keyword">sizeof</span>(dfn));</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= n; ++i)</span><br><span class="line">        f[i] = i;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">addEdge</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> v)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    edge[cnt].v = v;</span><br><span class="line">    edge[cnt].next = pre[u];</span><br><span class="line">    pre[u] = cnt++;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">int</span> _find(<span class="keyword">int</span> x)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">int</span> xx = x;</span><br><span class="line">    <span class="keyword">while</span>(x != f[x])</span><br><span class="line">        x = f[x];</span><br><span class="line">    <span class="keyword">while</span>(xx != x)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> u = f[xx];</span><br><span class="line">        f[xx] = x;</span><br><span class="line">        xx = u;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> x;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">void</span> _union(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span><br><span class="line">&#123;</span><br><span class="line">    f[_find(y)] = _find(x);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Tarjan</span><span class="params">(<span class="keyword">int</span> u)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    dfn[u] = low[u] = ++id;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = pre[u]; ~i; i=edge[i].next)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> v = edge[i].v;</span><br><span class="line">        <span class="keyword">if</span>(!dfn[v])</span><br><span class="line">        &#123;</span><br><span class="line">            fa[v] = u;</span><br><span class="line">            Tarjan(v);</span><br><span class="line">            <span class="keyword">if</span>(low[v] &gt; dfn[u])</span><br><span class="line">                cut++;</span><br><span class="line">            <span class="keyword">else</span> _union(u, v);</span><br><span class="line">            low[u] = min(low[u], low[v]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(v != fa[u])</span><br><span class="line">            low[u] = min(low[u], dfn[v]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">LCA</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> v)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(dfn[u] &gt; dfn[v])</span><br><span class="line">        swap(u, v);</span><br><span class="line">    <span class="keyword">int</span> x = _find(u);</span><br><span class="line">    <span class="keyword">while</span>(dfn[v] &gt; dfn[u])</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> y = _find(v);</span><br><span class="line">        <span class="keyword">if</span>(x != y)cut--;</span><br><span class="line">        f[y] = x;</span><br><span class="line">        v = fa[v];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> y = _find(v);</span><br><span class="line">    <span class="keyword">while</span>(u != v)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> x = _find(u);</span><br><span class="line">        <span class="keyword">if</span>(y != x)cut--;</span><br><span class="line">        f[x] = y;</span><br><span class="line">        u = fa[u];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, cut);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> cas = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(~<span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>, &amp;n,&amp;m), n&amp;&amp;m)</span><br><span class="line">    &#123;</span><br><span class="line">        init();</span><br><span class="line">        <span class="keyword">int</span> u,v;</span><br><span class="line">        <span class="keyword">while</span>(m--)</span><br><span class="line">        &#123;</span><br><span class="line">            u = Scan(),v = Scan();</span><br><span class="line">            addEdge(u, v);</span><br><span class="line">            addEdge(v, u);</span><br><span class="line">        &#125;</span><br><span class="line">        Tarjan(<span class="number">1</span>);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;Case %d:\n&quot;</span>, ++cas);</span><br><span class="line">        q = Scan();</span><br><span class="line">        <span class="keyword">while</span>(q--)</span><br><span class="line">        &#123;</span><br><span class="line">            u = Scan(),v = Scan();</span><br><span class="line">            LCA(u, v);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2020-09-21 11:56:57" itemprop="dateModified" datetime="2020-09-21T11:56:57+08:00">2020-09-21</time>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/bcRevincent.github.io/images/wechatpay.png" alt="Revincent 微信">
+        <p>微信</p>
+      </div>
+      
+      <div>
+        <img data-src="/bcRevincent.github.io/images/alipay.png" alt="Revincent 支付宝">
+        <p>支付宝</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>Revincent <i class="ic i-at"><em>@</em></i>
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="https://www.revincent.com/POJ3694/" title="POJ3694 Network(Tarjan求割边+LCA)">https://www.revincent.com/POJ3694/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="nav">
+    <div class="item left">
+      
+
+  <a href="/bcRevincent.github.io/BZOJ2468/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;b4f92b99ly1gix1cwx6ubj21hc0u0q7w.jpg" title="BZOJ2468 SJY摆棋子(kd_Tree模板题)">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> C/C++</span>
+  <h3>BZOJ2468 SJY摆棋子(kd_Tree模板题)</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/bcRevincent.github.io/untitled-c1/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;b4f92b99ly1giqdb1d7xhj21hc0u0n6b.jpg" title="Fun with the Fellowship(矩阵快速幂)">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> C/C++</span>
+  <h3>Fun with the Fellowship(矩阵快速幂)</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments" data-id="POJ3694/"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E9%A2%98%E7%9B%AE%E5%A4%A7%E6%84%8F%E5%8F%8A%E6%80%9D%E8%B7%AF"><span class="toc-number">1.</span> <span class="toc-text"> 1. 题目大意及思路</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E8%A7%A3%E9%A2%98%E4%BB%A3%E7%A0%81"><span class="toc-number">2.</span> <span class="toc-text"> 2. 解题代码</span></a></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/bcRevincent.github.io/BZOJ1941/" rel="bookmark" title="BZOJ1941 Hide and Seek(kd_Tree模板题)">BZOJ1941 Hide and Seek(kd_Tree模板题)</a></li><li><a href="/bcRevincent.github.io/BZOJ2468/" rel="bookmark" title="BZOJ2468 SJY摆棋子(kd_Tree模板题)">BZOJ2468 SJY摆棋子(kd_Tree模板题)</a></li><li><a href="/bcRevincent.github.io/untitled-c1/" rel="bookmark" title="Fun with the Fellowship(矩阵快速幂)">Fun with the Fellowship(矩阵快速幂)</a></li><li><a href="/bcRevincent.github.io/HDU3966/" rel="bookmark" title="HDU3966（树链剖分 + 区间更新 + 点查询）">HDU3966（树链剖分 + 区间更新 + 点查询）</a></li><li><a href="/bcRevincent.github.io/POJ3237/" rel="bookmark" title="POJ 3237 Tree(树链剖分 + 单点更新 + 区间更新 + 区间查询)">POJ 3237 Tree(树链剖分 + 单点更新 + 区间更新 + 区间查询)</a></li><li class="active"><a href="/bcRevincent.github.io/POJ3694/" rel="bookmark" title="POJ3694 Network(Tarjan求割边+LCA)">POJ3694 Network(Tarjan求割边+LCA)</a></li><li><a href="/bcRevincent.github.io/SPOJ-QTREE/" rel="bookmark" title="SPOJ-QTREE">SPOJ-QTREE</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Revincent"
+      data-src="/bcRevincent.github.io/images/avatar.jpg">
+  <p class="name" itemprop="name">Revincent</p>
+  <div class="description" itemprop="description">睡着做梦，醒着圆梦。</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/bcRevincent.github.io/archives/">
+        <span class="count">9</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/bcRevincent.github.io/categories/">
+        <span class="count">2</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL2JjUmV2aW5jZW50" title="https:&#x2F;&#x2F;github.com&#x2F;bcRevincent"><i class="ic i-github"></i></span>
+      <span class="exturl item twitter" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;twitter.com&#x2F;yourname"><i class="ic i-twitter"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;yourname"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPXlvdXJpZA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;yourid"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20vcmV2aW5jZW50" title="https:&#x2F;&#x2F;weibo.com&#x2F;revincent"><i class="ic i-weibo"></i></span>
+      <span class="exturl item email" data-url="bWFpbHRvOmJjLlJldmluY2VudEBnbWFpbC5jb20=" title="mailto:bc.Revincent@gmail.com"><i class="ic i-envelope"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/bcRevincent.github.io/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/bcRevincent.github.io/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/bcRevincent.github.io/categories/" rel="section"><i class="ic i-th"></i>分类</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/bcRevincent.github.io/tags/" rel="section"><i class="ic i-tags"></i>标签</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/bcRevincent.github.io/friends/" rel="section"><i class="ic i-heart"></i>友链</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/bcRevincent.github.io/links/" rel="section"><i class="ic i-magic"></i>网址</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/bcRevincent.github.io/BZOJ2468/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/bcRevincent.github.io/untitled-c1/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="copyright">
+  
+  &copy; 2010 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="ic i-sakura rotate"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Revincent @ bc Revincent</span>
+</div>
+
+<div>
+<span id="busuanzi_container_site_pv" class="theme-info">
+&nbsp;&nbsp;|&nbsp;&nbsp;本站总访问量<span id="busuanzi_value_site_pv"></span>次
+  </span>
+  <span id="busuanzi_container_site_uv" class="theme-info">
+&nbsp;&nbsp;|&nbsp;&nbsp;本站访客数<span id="busuanzi_value_site_uv"></span>人
+|&nbsp;&nbsp;
+  </span>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</div>
+
+<div class="powered-by">
+  基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: 'https://www.revincent.com/POJ3694/',
+    favicon: {
+      show: "（●´3｀●）",
+      hide: "(´Д｀)"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 ${query} ，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return uri === LOCAL.path;
+      }
+    ]
+  };
+</script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/velocity-animate@1.5.2/velocity.min.js,npm/velocity-animate@1.5.2/velocity.ui.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/bcRevincent.github.io/js/app.js?v=0.1.6"></script>
+
+
+
+
+</body>
+</html>
