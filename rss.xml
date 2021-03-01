@@ -5,9 +5,39 @@
         <link>https://www.revincent.com</link>
         <description>睡着做梦，醒着圆梦。</description>
         <language>zh-CN</language>
-        <pubDate>Mon, 21 Sep 2020 11:58:29 +0800</pubDate>
-        <lastBuildDate>Mon, 21 Sep 2020 11:58:29 +0800</lastBuildDate>
+        <pubDate>Mon, 01 Mar 2021 11:13:27 +0800</pubDate>
+        <lastBuildDate>Mon, 01 Mar 2021 11:13:27 +0800</lastBuildDate>
         <category>ACM</category>
+        <category>pytorch</category>
+        <item>
+            <guid isPermalink="true">https://www.revincent.com/pytorch-num-worker/</guid>
+            <title>windows环境下pytorch使用num_worker</title>
+            <link>https://www.revincent.com/pytorch-num-worker/</link>
+            <category>pytorch</category>
+            <pubDate>Mon, 01 Mar 2021 11:13:27 +0800</pubDate>
+            <description><![CDATA[ &lt;h2 id=&#34;在pytorch中我们可以通过设置num_worker的数量来提高数据加载的速度从而减少将数据从cpu加载到gpu的时间开销以提高gpu的利用率进而加快模型的训练速度&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#在pytorch中我们可以通过设置num_worker的数量来提高数据加载的速度从而减少将数据从cpu加载到gpu的时间开销以提高gpu的利用率进而加快模型的训练速度&#34;&gt;#&lt;/a&gt; 在 pytorch 中，我们可以通过设置 num_worker 的数量来提高数据加载的速度，从而减少将数据&lt;br&gt;
+从 CPU 加载到 GPU 的时间开销，以提高 GPU 的利用率，进而加快模型的训练速度。&lt;/h2&gt;
+&lt;h2 id=&#34;在linux环境下设置dataloader的num_worker数量大于0是可以正常运行的但是在windows环境下会报错只能设置num_worker0才可以正常运行但是这样会使得模型的训练速度极其漫长&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#在linux环境下设置dataloader的num_worker数量大于0是可以正常运行的但是在windows环境下会报错只能设置num_worker0才可以正常运行但是这样会使得模型的训练速度极其漫长&#34;&gt;#&lt;/a&gt; 在 linux 环境下设置 dataLoader 的 num_worker 数量大于 0 是可以正常运行的，但是在&lt;br&gt;
+ Windows 环境下会报错，只能设置 num_worker=0 才可以正常运行，但是这样会使得模型&lt;br&gt;
+的训练速度极其漫长…&lt;/h2&gt;
+&lt;h2 id=&#34;如果还是想在windows环境下在pytorch中启用多线程加载数据那么应该怎么办呢这个问题我找了很久很久很久才找到解决方案&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#如果还是想在windows环境下在pytorch中启用多线程加载数据那么应该怎么办呢这个问题我找了很久很久很久才找到解决方案&#34;&gt;#&lt;/a&gt; 如果还是想在 Windows 环境下在 pytorch 中启用多线程加载数据，那么应该怎么办呢？&lt;br&gt;
+这个问题我找了很久很久很久… 才找到解决方案！！！&lt;/h2&gt;
+&lt;p&gt;&lt;big&gt;&lt;em&gt;&lt;strong&gt;torchnet + dataloader&lt;/strong&gt;&lt;/em&gt;&lt;/big&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li&gt;安装 torchnet&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight plain&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;pip install torchnet&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;自定义 dataLoader&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight plain&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;25&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;class DataLoader:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    def __init__(self, ...):&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        pass&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    def get_task_batch(self, ...):&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        pass&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    def get_iterator(self):&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        tnt_dataset &amp;#x3D; torchnet.dataset.ListDataset(&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            elem_list&amp;#x3D;range(self.task_num), load&amp;#x3D;self.get_task_batch)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        data_loader &amp;#x3D; tnt_dataset.parallel(&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            batch_size&amp;#x3D;self.batch_size,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            num_workers&amp;#x3D;self.num_workers,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            drop_last&amp;#x3D;True,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            # 此函数可以使每个worker使用不同的随机种子&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            worker_init_fn&amp;#x3D;self.worker_init_fn_seed,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            shuffle&amp;#x3D;(False if self.test else True))&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        return data_loader&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    def worker_init_fn_seed(self, worker_id):&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        seed &amp;#x3D; 10 + 5 * worker_id&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        np.random.seed(seed)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    def __call__(self):&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        return self.get_iterator()&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;在主程序中使用方法&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight plain&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;# MiniImagenet为预处理数据的类&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;dataset &amp;#x3D; MiniImagenet(data_path, ...)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;loader &amp;#x3D; DataLoader(dataset, num_workers&amp;#x3D;2, ...)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;for step, batch in enumerate(loader()):&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    x, y &amp;#x3D; batch&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">https://www.revincent.com/untitled-c1/</guid>
             <title>Fun with the Fellowship(矩阵快速幂)</title>

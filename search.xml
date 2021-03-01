@@ -201,4 +201,36 @@ M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">�
         <tag>ACM</tag>
       </tags>
   </entry>
+  <entry>
+    <title>windows环境下pytorch使用num_worker</title>
+    <url>/bcRevincent.github.io/pytorch-num-worker/</url>
+    <content><![CDATA[<h2 id="在pytorch中我们可以通过设置num_worker的数量来提高数据加载的速度从而减少将数据从cpu加载到gpu的时间开销以提高gpu的利用率进而加快模型的训练速度"><a class="markdownIt-Anchor" href="#在pytorch中我们可以通过设置num_worker的数量来提高数据加载的速度从而减少将数据从cpu加载到gpu的时间开销以提高gpu的利用率进而加快模型的训练速度">#</a> 在 pytorch 中，我们可以通过设置 num_worker 的数量来提高数据加载的速度，从而减少将数据<br>
+从 CPU 加载到 GPU 的时间开销，以提高 GPU 的利用率，进而加快模型的训练速度。</h2>
+<h2 id="在linux环境下设置dataloader的num_worker数量大于0是可以正常运行的但是在windows环境下会报错只能设置num_worker0才可以正常运行但是这样会使得模型的训练速度极其漫长"><a class="markdownIt-Anchor" href="#在linux环境下设置dataloader的num_worker数量大于0是可以正常运行的但是在windows环境下会报错只能设置num_worker0才可以正常运行但是这样会使得模型的训练速度极其漫长">#</a> 在 linux 环境下设置 dataLoader 的 num_worker 数量大于 0 是可以正常运行的，但是在<br>
+ Windows 环境下会报错，只能设置 num_worker=0 才可以正常运行，但是这样会使得模型<br>
+的训练速度极其漫长…</h2>
+<h2 id="如果还是想在windows环境下在pytorch中启用多线程加载数据那么应该怎么办呢这个问题我找了很久很久很久才找到解决方案"><a class="markdownIt-Anchor" href="#如果还是想在windows环境下在pytorch中启用多线程加载数据那么应该怎么办呢这个问题我找了很久很久很久才找到解决方案">#</a> 如果还是想在 Windows 环境下在 pytorch 中启用多线程加载数据，那么应该怎么办呢？<br>
+这个问题我找了很久很久很久… 才找到解决方案！！！</h2>
+<p><big><em><strong>torchnet + dataloader</strong></em></big></p>
+<hr>
+<ol>
+<li>安装 torchnet</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install torchnet</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>自定义 dataLoader</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class DataLoader:</span><br><span class="line">    def __init__(self, ...):</span><br><span class="line">        pass</span><br><span class="line">    </span><br><span class="line">    def get_task_batch(self, ...):</span><br><span class="line">        pass</span><br><span class="line">    </span><br><span class="line">    def get_iterator(self):</span><br><span class="line">        tnt_dataset &#x3D; torchnet.dataset.ListDataset(</span><br><span class="line">            elem_list&#x3D;range(self.task_num), load&#x3D;self.get_task_batch)</span><br><span class="line">        data_loader &#x3D; tnt_dataset.parallel(</span><br><span class="line">            batch_size&#x3D;self.batch_size,</span><br><span class="line">            num_workers&#x3D;self.num_workers,</span><br><span class="line">            drop_last&#x3D;True,</span><br><span class="line">            # 此函数可以使每个worker使用不同的随机种子</span><br><span class="line">            worker_init_fn&#x3D;self.worker_init_fn_seed,</span><br><span class="line">            shuffle&#x3D;(False if self.test else True))</span><br><span class="line">        return data_loader</span><br><span class="line">    </span><br><span class="line">    def worker_init_fn_seed(self, worker_id):</span><br><span class="line">        seed &#x3D; 10 + 5 * worker_id</span><br><span class="line">        np.random.seed(seed)</span><br><span class="line">    </span><br><span class="line">    def __call__(self):</span><br><span class="line">        return self.get_iterator()</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>在主程序中使用方法</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># MiniImagenet为预处理数据的类</span><br><span class="line">dataset &#x3D; MiniImagenet(data_path, ...)</span><br><span class="line">loader &#x3D; DataLoader(dataset, num_workers&#x3D;2, ...)</span><br><span class="line">for step, batch in enumerate(loader()):</span><br><span class="line">    x, y &#x3D; batch</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>pytorch</tag>
+      </tags>
+  </entry>
 </search>

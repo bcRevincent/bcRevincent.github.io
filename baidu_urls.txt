@@ -1,3 +1,4 @@
+https://www.revincent.com/pytorch-num-worker/
 https://www.revincent.com/untitled-c1/
 https://www.revincent.com/POJ3694/
 https://www.revincent.com/BZOJ2468/
